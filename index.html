@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MEMORY GAME</title>
+    <!-- FONTS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sen&display=swap" rel="stylesheet">
+    <!-- STYLES -->
+    <link rel="stylesheet" type="text/css" href="css/normalize.css">
+    <link rel="stylesheet" type="text/css" href="css/site.css">
+
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+</head>
+<header class="headboard hidden">
+    <div class="counters">
+        <div class="counter-item">
+            <h3 class="counter-title">Time</h3>
+            <div class="counter-number">
+                <span id="minutes">00</span>:<span id="seconds"></span>
+            </div>
+        </div>
+        <div class="counter-item">
+            <h3 class="counter-title">Movements</h3>
+            <div class="counter-number">
+                <span id="mov">00</span>/<span id="total-movs">20</span>
+            </div>
+        </div>
+        <div class="counter-item">
+            <h3 class="counter-title">Level</h3>
+            <div class="counter-number">
+                <span id="level"></span>
+            </div>
+        </div>
+    </div>
+</header>
+<body>
+    <main>
+        <!-- aquí van las tarjetas repartidas -->
+        <div id="board" class="board-container hidden"></div>
+
+        <!-- botón para iniciar y cargar los modos disponibles -->
+        <button id="btn-play" class="neon-button">Let's play !</button>
+
+         <!-- pantalla con los modos de juego disponible -->
+        <div id="levels" class="grid-container-levels hidden">
+            <div id="anime" class="grid-item-levels levels__anime"><button class="btn-level" value="Anime" >Anime</button></div>
+            <div id="games" class="grid-item-levels levels__games"><button class="btn-level" value="Games" >Games</button></div>
+            <div id="series" class="grid-item-levels levels__series"><button class="btn-level" value="Series">Series</button></div>
+            <div id="movies" class="grid-item-levels levels__movies"><button class="btn-level" value="Movies">Movies</button></div>
+        </div>
+
+        <!-- modales informativos con subir nivel, fin de movimientos, fin de tiempo y juego terminado -->
+        <div id="upLevel" class="up-level">
+              <h2>¡Nice!</h2>
+              <button id="btn-next-level">Next Level</button>
+              <button class="btn-restart">Restart Level</button>
+              <button class="btn-change-mode">Change Mode</button>
+        </div>
+        <div id="gameOver" class="game-over">
+            <div class="modal">
+              <h2>¡Damn it!</h2>
+              <p>You have run out of moves 😭</p>
+              <button class="btn-restart">Restart Level</button>
+              <button class="btn-change-mode">Change Mode</button>
+            </div>
+        </div>
+        <div id="timeOver" class="time-over">
+            <div class="modal">
+              <h2>¡Damn it!</h2>
+              <p>You have run out of time 😭</p>
+              <button class="btn-restart">Restart Level</button>
+              <button class="btn-change-mode">Change Mode</button>
+            </div>
+        </div>
+        <div id="endGame" class="end-game">
+            <div class="modal">
+              <h2>¡Well Done!</h2>
+              <p>You finish the game!! 🏆</p>
+              <button class="btn-restart">Restart Level</button>
+              <button class="btn-change-mode">Change Mode</button>
+            </div>
+        </div>
+
+        <!--SOUNDS -->
+        <!--success -->
+        <audio id="success-sound" class="sound" src="sounds/success.mp3" preload="auto"></audio>
+        <!--flip -->
+        <audio id="flip-sound" class="sound" src="sounds/flip.mp3" preload="auto"></audio>
+        <!--error -->
+        <audio id="error-sound" class="sound" src="sounds/error.mp3" preload="auto"></audio>                
+    </main>
+
+
+    <script src="js/select-level.js"></script>
+    <script src="js/global-variables.js"></script>
+    <script src="js/flip-check-cards.js"></script>
+    <script src="js/shuffle-deliver-cards.js"></script>
+    <script src="js/success-error.js"></script>
+    <script src="js/movements.js"></script>
+    <script src="js/timer.js"></script>
+    <script src="js/change-level.js"></script>
+    <script src="js/end-game.js"></script>
+    <script src="js/start-game.js"></script>
+
+</body>
+</html>
