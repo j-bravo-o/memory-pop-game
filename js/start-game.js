@@ -7,6 +7,12 @@ updateLevelText();
 updateMovements();
 updateTimer();
 
+//limpiamos el div con las estadísitcas cada vez que se inicie el juego
+const stats_container = document.querySelector(".game-stats-container");
+stats_container.classList.remove("visible");
+while(stats_container.firstChild)stats_container.removeChild(stats_container.firstChild);
+
+
 //se remueven los modales y reaparece el board con tarjetas nuevas repartidas
 const headboard = document.querySelector(".headboard");
 headboard.classList.remove("hidden");
