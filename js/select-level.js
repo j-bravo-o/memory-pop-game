@@ -1,4 +1,4 @@
-
+//mostramos las categorías de juego disponibles
 const btnPlay = document.getElementById("btn-play");
 btnPlay.addEventListener("click",()=>{
     btnPlay.classList.add("hidden");
@@ -7,13 +7,11 @@ btnPlay.addEventListener("click",()=>{
 })
 
 
-
+//capturamos la categoría seleccionada
 const btnLevel = document.querySelectorAll(".btn-level");
 btnLevel.forEach(e => {
     e.addEventListener("click", ()=>{
         let level_selected = e.value;
-        console.log(level_selected);
-        console.log(typeof(level_selected));
         if (level_selected === "Anime"){
             selectAnime();
             startGame();
@@ -33,10 +31,13 @@ btnLevel.forEach(e => {
     });
 });
 
-
+//se retorna a la pantalla con las categorías de juego
 const btnChangeMode = document.querySelectorAll(".btn-change-mode");
 btnChangeMode.forEach(e => {
     e.addEventListener("click", ()=>{
+        movs_by_level = [];
+        time_by_level = [];
+        
         const headboard = document.querySelector(".headboard");
         headboard.classList.add("hidden");
         const levelContainer = document.querySelector(".grid-container-levels");

@@ -5,7 +5,14 @@ let levels;
 let movements  = 0;
 let runLevel;
 
+let seconds_by_level;
+let movs_by_level = [];
+let time_by_level = [];
+let stats =[];
 // las siguientes 3 funciones determinan las imágenes según el modo seleccionado
+//adicionalmente establecimos el máximo de movimientos y tiempo por nivel
+//la posición del array determina el nivel
+//la posición 0, es el nivel 1 y así consecutivamente
 const selectAnime = ()=>{
     cards_Group      = [["img/anime/2.jpg","img/anime/12.png"],
     ["img/anime/4.jpg","img/anime/5.jpg"],

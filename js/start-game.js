@@ -1,7 +1,7 @@
 const startGame = ()=>{
 //establece nuevamente los movimientos en cero
 movements = 0;
-
+// se reestablecen los contadores de nivel, movimientos y cronómetro cada vez que se inicia un nivel
 document.getElementById("mov").innerHTML = "00";
 updateLevelText();
 updateMovements();
@@ -24,9 +24,9 @@ const timeOver = document.querySelector(".time-over");
 timeOver.classList.remove("visible");
 
 
-    //llama la funcion que reparte
+//llamamos la funcion que reparte las cartas en el board principal , pasandole las cartas como parámetro
 deliverCards(levels[runLevel].cards);
-//selecciona todas las cartas y les agregar el evento click para poder llamar a la función que voltea y compara
+//selecciona todas las cartas y les agrega el evento click para poder llamar a la función que voltea y compara
 let cardHidden = document.querySelectorAll(".card");
 cardHidden.forEach(card => {
     card.addEventListener("click",flipCard);
@@ -36,18 +36,23 @@ timerInitialization();
 
 };
 
+//declaramos la función que reinicia el nivel en curso, desde el nivel 1
 const restart = ()=>{
     runLevel = 0;
+    movs_by_level = [];
+    time_by_level = [];
+    stats = [];
     startGame();
 };
 
-//botón para REiniciar el juego
+//declaramos el botón para Reiniciar el juego
 const btnRestart = document.querySelectorAll(".btn-restart");
 btnRestart.forEach(e => {
     e.addEventListener("click",restart);
 })
 
-//botón para iniciar el juego cargando el siguiente nivel
+//declaramos el botón que permite cargar el siguiente nivel de juego
+//este se muestra solo si un nivel ha sido completado
 const btnNextLevel = document.getElementById("btn-next-level");
 btnNextLevel.addEventListener("click", chargeNewLevel);
 

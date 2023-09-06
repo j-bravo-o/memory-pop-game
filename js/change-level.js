@@ -1,16 +1,16 @@
 
-//incremente el nivel actual en 1
+//declaramos la función que incrementa el nivel actual en 1
 const upLevel = ()=>{
     runLevel++;
 }
-//actualiza el nivel en pantalla
+//declaramos la función que actualiza el nivel en pantalla
 const updateLevelText = ()=>{
     let levelText = runLevel + 1;
     if(levelText < 10) levelText = "0"+ levelText;
     document.getElementById("level").innerHTML = levelText;
 }
 
-//carga el el nuevo nivel completamente
+//declaramos la función que carga el siguiente nivel
 const chargeNewLevel = ()=>{
     upLevel();
     updateLevelText();

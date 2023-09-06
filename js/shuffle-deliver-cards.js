@@ -1,5 +1,5 @@
 
-// revuelve cartas
+// declaramos la función que mezcla aleatoriamente cartas
 const shuffleCards = (cards_Group)=>{
 
     let totalCards = cards_Group.concat(cards_Group);   
@@ -7,19 +7,21 @@ const shuffleCards = (cards_Group)=>{
     let result = totalCards.sort(()=>{
         return 0.5 - Math.random();
     })
-
     return result;
-}
+};
 
 
 
-// reparte las cartas sobre la mesa o board
+// declaramos la función que reparte las cartas sobre el board principal, recibe las cartas desde startGame
 const deliverCards = (cards_Group)=>{
     let board         = document.getElementById("board");
+    //llamamos la funcion que mezcla y le pasamos las cartas recibidas como parámetro
+    //estas cartas vienen de
     let shuffle_cards = shuffleCards(cards_Group);
     let fragment      = document.createDocumentFragment();
     board.innerHTML   = "";
     
+    //una vez revueltas las cartas, procedemos a insertarlas en el board
     shuffle_cards.forEach(element => {
     let card = document.createElement("div");
     card.innerHTML = `<div class="card" data-src="${element}">

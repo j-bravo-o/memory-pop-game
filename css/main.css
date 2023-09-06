@@ -259,6 +259,7 @@ main {
     50% {background-position: right}
     100% {background-position: left}
   }
+
   
 .success {
     pointer-events: none;
@@ -349,4 +350,26 @@ button:focus {
     display: none;
 }
 
+.game-stats-container{
+  display: none;
+  place-content: center center;
+}
+.game-stats-container.visible{
+  display: block;
+  animation: fade-in 2s forwards;
+  margin: 20px auto auto 5px;
+  opacity: 0;
+}
+
+@keyframes fade-in{
+  to{
+    opacity: 1;
+  }
+}
+.game-stats{
+  place-content: center center;
+  gap: 15px;
+  font-size: 15px;
+  margin-bottom: 15px;
+}
 
