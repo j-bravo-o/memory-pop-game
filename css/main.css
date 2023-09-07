@@ -346,12 +346,6 @@ button:focus {
     display: flex;
 }
 
-
-#upLevel {
-  background: #170214;
-}
-
-
 .sound{
     display: none;
 }
